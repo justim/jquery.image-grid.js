@@ -1,70 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Jlocus by justim</title>
-  </head>
-
-  <body>
-    <a id="forkme_banner" href="https://github.com/justim/jLocus">View on GitHub</a>
-    <div class="shell">
-
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Jlocus</h1>
-            <h2></h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/justim/jLocus/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/justim/jLocus/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h1>jLocus</h1>
-
-<p>Display images in a grid, regardless of their dimensions, with some fancy effects.</p>
-      </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/justim">justim</a> can be found on <a href="https://github.com/justim/jLocus">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
-    </div>
-
-    
-  </body>
+	<head>
+		<title>jLocus</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<div id="container">
+			<ul>
+				<!-- <li><img src="http://farm4.staticflickr.com/3414/3561920871_73b55a4600_b.jpg"></li> -->
+				<!-- <li><img src="http://farm6.staticflickr.com/5125/5267585615_16c6c6bc00_b.jpg"></li> -->
+				<!-- <li><img src="http://farm5.staticflickr.com/4075/4904558506_6c6b0a4658_b.jpg"></li> -->
+				<!-- <li><img src="http://farm1.staticflickr.com/47/142350388_1c32af31a2_b.jpg"></li> -->
+				<!-- <li><img src="http://farm4.staticflickr.com/3400/4624961812_66dd158b48_o.jpg"></li> -->
+				<!-- <li><img src="http://farm4.staticflickr.com/3247/2676698380_3fca903256_b.jpg"></li> -->
+			</ul>
+		</div>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="jquery-1.7.2.min.js"><\/script>')</script>
+		<script src="jquery.jlocus.js"></script>
+		<script>
+		$(function() {
+			var totalImages = 2 + Math.floor(Math.random() * 5);
+			var list = [1, 2, 3, 4, 5, 6, 7];
+			var i, j, t;
+			
+			for (i = 1; i < list.length; i++) {
+				j = Math.floor(Math.random() * (1 + i));
+				
+			    if (j != i) {
+					t = list[i];
+					list[i] = list[j];
+					list[j] = t;
+				}
+			}
+			
+			for (var i = 1; i <= totalImages; i++) {
+				$('#container ul').append('<li><img src="images/' + list[i] + '.jpg"></li>')
+			}
+			
+			$('#container').jlocus();
+		});
+		</script>
+	</body>
 </html>
