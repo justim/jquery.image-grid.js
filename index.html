@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>jLocus</title>
+		<title>Image Grid</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
 	</head>
@@ -20,7 +20,7 @@
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="jquery-1.7.2.min.js"><\/script>')</script>
-		<script src="jquery.jlocus.js"></script>
+		<script src="jquery.image-grid.js"></script>
 		<script>
 		$(function() {
 			var totalImages = 2 + Math.floor(Math.random() * 5);
@@ -41,7 +41,7 @@
 				$('#container ul').append('<li><img src="images/' + list[i] + '.jpg"></li>')
 			}
 			
-			$('#container').jlocus();
+			$('#container').imageGrid();
 		});
 		</script>
 	</body>

@@ -1,7 +1,7 @@
 ;(function($, window, undefined) {
 	var document = window.document;
 	
-	$.fn.jlocus = function(args) {
+	$.fn.imageGrid = function(args) {
 		// default options
 		var bogus,
 			e = function(message) {
@@ -26,7 +26,7 @@
 			// override the default options with parameters
 			options = $.extend({}, defaultOptions, args),
 			
-			jLocus = {
+			imageGrid = {
 				Tile: function(image, loc) {
 					var self = this,
 						location = loc,
@@ -258,17 +258,17 @@
 				calculateContainerDimensions();
 				
 				// only doing it once
-				if (!$container.data('jlocus-started')) {
+				if (!$container.data('image-grid-started')) {
 					// insta hide the images
 					$container.css({
 						visibility: 'visible'
 					});
 					
 					images.hide().each(function() {
-						tiles.push(jLocus.Tile(this));
+						tiles.push(imageGrid.Tile(this));
 					});
 				
-					$container.data('jlocus-started', true);
+					$container.data('image-grid-started', true);
 				}
 			},
 			calculateContainerDimensions = function() {
